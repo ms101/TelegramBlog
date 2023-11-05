@@ -13,12 +13,13 @@ Create posts on a self-hosted blog via messaging a Telegram bot
 
 You can set up your local development environment using the provided Docker stack. To get started, follow these steps:
 
-1. Run the following command to launch the Docker stack in the background: 
+1. Copy `.env.example` to `.env` and fill out with your credentials where needed.
+2. Run the following command to launch the Docker stack in the background: 
     ```bash
     docker compose up -d
     ```
 
-2. Once the stack is up and running, you can access the blog example at [localhost](http://localhost).
+3. Once the stack is up and running, you can access the blog example at [localhost](http://localhost).
     > **_NOTE_**  
    If you prefer a more user-friendly domain for your local development, you can create a custom alias, for example, "telegram-bot.local," by adding the following line to your /etc/hosts file:  
     > 
