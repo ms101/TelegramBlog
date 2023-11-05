@@ -3,7 +3,10 @@ version: "3.7"
 services:
 
   app:
-    image: php:8.2-apache
+    build:
+      context: ./.docker/app/php
+      dockerfile: Dockerfile
+    image: telegram_bot
     container_name: telegramBot-app
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -14,6 +17,7 @@ services:
     volumes:
       - ./:/var/www/html
       - ./.docker/app/php/conf.d/:/usr/local/etc/php/conf.d/
+      - ./.docker/app/apache2/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf
     networks:
       - telegram_bot_network
 
