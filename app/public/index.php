@@ -1,22 +1,16 @@
 <?php
 
-// enable or disable update checks by Telegram bot
-$update = true;
+require_once realpath(__DIR__ . '/../../vendor/autoload.php');
 
-// define blog title/topic
-$title = "2023-11 Exampletrip";
+use Dotenv\Dotenv;
 
-// define description
-$descr = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.";
-
-// define order of new entries (asc/desc)
-$order = "desc"
+(Dotenv::createImmutable(__DIR__ . '/../../'))->load();
 
 ?><!doctype html>
 <html lang="de">
 <head>
 	<meta charset="utf-8">
-	<title><?=$title?></title>
+	<title><?= $_ENV['APP_TITLE'] ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -27,14 +21,14 @@ $order = "desc"
 <div id="rightpane">
 
 <header>
-	<h2><?=$title?></h2>
-	<p id='descr'><?=$descr?></p>
+	<h2><?= $_ENV['APP_TITLE'] ?></h2>
+	<p id='descr'><?= $_ENV['APP_DESCRIPTION'] ?></p>
 </header>
 
 <?php
 
 // Check for updates in group
-if($update)
+if($_ENV['TELEGRAM_UPDATE'] === 'true')
 	include "./updatesite.php";
 
 // fill content via loaded html files
@@ -55,11 +49,10 @@ while (($entry = readdir($handle)) !== FALSE) {
 }
 closedir($handle);
 
-if($order === "desc") {
-	sort($files);
-} else {
-	rsort($files);
-}
+match ($_ENV['ENTRY_ORDER']) {
+    'desc' => sort($files),
+    default => rsort($files)
+};
 
 if(!empty($files)) {
 	foreach($files as $file) {
