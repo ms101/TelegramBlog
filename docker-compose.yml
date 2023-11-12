@@ -7,6 +7,7 @@ services:
       context: ./.docker/app/php
       dockerfile: Dockerfile
     image: telegram_bot
+    user: 1000:1000
     container_name: telegramBot-app
     extra_hosts:
       - "host.docker.internal:host-gateway"
