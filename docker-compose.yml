@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+
+  app:
+    build:
+      context: ./.docker/app/php
+      dockerfile: Dockerfile
+    image: telegram_bot
+    container_name: telegramBot-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    working_dir: /var/www/html
+    ports:
+      - '80:80'
+    volumes:
+      - ./:/var/www/html
+      - ./.docker/app/php/conf.d/:/usr/local/etc/php/conf.d/
+      - ./.docker/app/apache2/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    networks:
+      - telegram_bot_network
+
+networks:
+  telegram_bot_network:
+    driver: bridge
