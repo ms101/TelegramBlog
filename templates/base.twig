@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- LEFT PANE -->
+<div id="left-pane">
+    <h1>Blog</h1>
+</div>
+
+<!-- RIGHT PANE -->
+<div id="right-pane">
+    <header>
+        <h2>{{ block('title') }}</h2>
+        <p>{% block description %}{% endblock %}</p>
+    </header>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <p id="symbol">&#3484;</p>
+</div>
+</body>
+</html>

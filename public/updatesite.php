@@ -7,8 +7,11 @@ $token = "";
 // TODO for future usage, restrict to specific group via chat id
 $chatid = "";
 
-// activate debugging via command line argument, e.g. as cronjob command: php -f /path/to/updatesite.php debug
-if($argv[1] === "debug") $DEBUG = 1;
+if (isset($argv)) {
+	// activate debugging via command line argument, e.g. as cronjob command: php -f /path/to/updatesite.php debug
+	if($argv[1] === "debug") $DEBUG = 1;
+}
+
 if($DEBUG) error_reporting(E_ALL);
 
 $imgdir = "images";
@@ -27,6 +30,7 @@ if($offset)
 // getUpdates
 $msg = file_get_contents("https://api.telegram.org/bot$token/getUpdates?offset=$offset");
 $messages = json_decode($msg, true);
+
 
 if($DEBUG) {
 	echo "<pre>";

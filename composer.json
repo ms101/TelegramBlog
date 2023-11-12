@@ -1,0 +1,21 @@
+{
+    "name": "ms101/telegram-blog",
+    "description": "Create posts on a self-hosted blog via messaging a Telegram bot",
+    "license": "GPL v3.0",
+    "autoload": {
+        "psr-4": {
+            "Ms101\\TelegramBlog\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ms101"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "vlucas/phpdotenv": "^5.5",
+        "twig/twig": "^3.0",
+        "monolog/monolog": "^3.5"
+    }
+}

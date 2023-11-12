@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        {{ include("post.twig") }}
+        <hr />
+    {% endfor %}
+{% endblock %}

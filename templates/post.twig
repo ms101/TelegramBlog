@@ -1,0 +1,15 @@
+<div class="post">
+    {% if post.text %}
+        <!-- Handle text based post -->
+        <p>{{ post.text | raw }}</p>
+    {% else %}
+        <!-- Handle image based post -->
+        <figure>
+            <img src="{{ post.filepath }}" alt="{{ post.filename }}" />
+
+            {% if post.caption is not null %}
+                <figcaption>{{ post.caption | raw }}</figcaption>
+            {% endif %}
+        </figure>
+    {% endif %}
+</div>
