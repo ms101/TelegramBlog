@@ -1,0 +1,23 @@
+{
+    "result": [
+        {
+            "update_id": 1,
+            "message": {
+                "caption": "Some caption",
+                "text": "Some text",
+                "date": "15.02 20:30",
+                "photo": [
+                    {
+                        "file_id": 1
+                    },
+                    {
+                        "file_id": 2
+                    },
+                    {
+                        "file_id": 3
+                    }
+                ]
+            }
+        }
+    ]
+}
