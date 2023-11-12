@@ -1,3 +1,4 @@
 .idea
 vendor
 .env
+public/telegram-blog.log
