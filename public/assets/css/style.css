@@ -8,7 +8,7 @@ li a, li a:link, li a:active {
     text-decoration: none;
 }
 li a:hover { color: #2b82cb; }
-#leftpane {
+#left-pane {
     width: 80px;
     height: 100%;
     position: fixed;
@@ -16,11 +16,11 @@ li a:hover { color: #2b82cb; }
     background-color: #444;
     border-left: 3px solid #00adee; /* 2b82cb */
 }
-#leftpane h1 {
+#left-pane h1 {
     writing-mode: vertical-lr;
     text-orientation: mixed;
 }
-#rightpane {
+#right-pane {
     width: auto;
     margin: 0 0 60px 0;
     padding: 60px 0 0 80px;
@@ -29,7 +29,6 @@ li a:hover { color: #2b82cb; }
     display: block;
     width: 60%;
     margin: 28px auto 0;
-    box-shadow: 2px 2px 3px black;
     box-shadow: 1px 1px 4px black;
     -moz-transition-duration: .2s; /* firefox */
     -webkit-transition-duration: .2s; /* chrome, safari */
@@ -58,7 +57,6 @@ h1 {
 h2 {
     margin: 0 20% 24px;
     font-size: 160%;
-    color: #d1d1d1;
     color: #444;
     font-family: serif;
     text-align: left;
@@ -79,7 +77,7 @@ body > ul li a:hover {
     border-left: 6px solid #00adee;
     color: #fff;
 }
-p, ul, ol {
+.post, p, ul, ol {
     width: 55%;
     margin: 0 auto;
     font-size: 110%;
@@ -95,7 +93,10 @@ pre { text-align: left; }
     margin-top: 6px;
     text-align: center;
 }
-.post {	text-align: left; }
+.post {
+    text-align: left;
+    margin: 20px auto;
+}
 .post span { opacity: .5 ; }
 #symbol {
     font-size: 90px;
